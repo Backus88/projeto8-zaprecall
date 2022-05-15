@@ -1,16 +1,31 @@
 import Card from "./Card";
 import React from "react";
-import flip from "../../assets/imgs/flip.svg"
+import imgFlip from "../../assets/imgs/flip.svg"
+import Finished from "./Finished";
 
-
-export default function Question({questions,index,flippedCard}){
+export default function Question({questions,index,flip,setFlip,fliper,answers, setCanFlip}){
+    const className = ["done-red", "done-yellow" ,"done-green"];
+    const iconName = ["close-circle", "help-circle","checkmark-circle"];
     const [estage, setEstage] = React.useState(true);
+    const [done, setDone] = React.useState(true)
+    const [icon, setIcon] = React.useState("");
+    const[name, setName] =React.useState("");
+    
+    function renderDone(iconValue,nameValue){
+        setIcon(iconValue);
+        setName(nameValue);
+        setDone(false);
+        setCanFlip(true);
+    };
 
     return (
         <>
-        {(!flippedCard)?
-            <div className="question">
-                <h3> Pergunta {index}</h3>
+        {
+        (!done)?
+        <Finished icon = {icon} name = {name} index ={index}/>:
+        (!flip[index])?
+            <div className="question" onClick={()=> fliper(flip,setFlip,index)}>
+                <h3> Pergunta {index+1}</h3>
                 <ion-icon name="play-outline"></ion-icon>
             </div>
             :
@@ -18,12 +33,26 @@ export default function Question({questions,index,flippedCard}){
                 {(estage)?
                 <>
                     <h4>{questions}</h4> 
-                    <img role="button" src={flip} onClick={()=> setEstage(false)} />
+                    <img role="button" src={imgFlip} onClick={()=> setEstage(false)} />
                 </>
                  : 
-                 <>
-                    
-                 </>
+                <>
+                    <h4>{answers}</h4>
+                    <div className="card-answer">
+                        <div className="vermelha" onClick={()=> renderDone(iconName[0],className[0])} >
+                            <h5>Não</h5>
+                            <h5>lembrei</h5>
+                        </div>
+                        <div className="amarela" onClick={()=> renderDone(iconName[1],className[1])}>
+                            <h5>Quase não</h5>
+                            <h5>lembrei</h5>
+                        </div>
+                        <div className="verde" onClick={()=> renderDone(iconName[2],className[2])}>
+                            <h5>Zap</h5>
+                        </div>
+                    </div>
+                </>
+                 
                  }
             </Card>
         }

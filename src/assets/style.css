@@ -7,7 +7,7 @@ h1, h2 {
     font-family: 'Righteous', cursive;
 }
 
-h3 {
+h3, h4, h5 {
     font-family: 'Recursive', cursive;
 }
 
@@ -76,7 +76,7 @@ h1 {
     margin-right: 15px;
 }
 
-.question {
+.question, .done-red, .done-green, .done-yellow {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -87,6 +87,7 @@ h1 {
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     margin-top: 25px;
+    cursor: pointer;
 }
 
 ion-icon[name="play-outline"]{
@@ -105,4 +106,109 @@ h3 {
     color: #333333;
     background-color: #FFFFFF;
     margin-left: 15px;
+}
+
+.card{
+    width: 299px;
+    height: 131px;
+    margin-top: 25px;
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.card h4 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    background: #FFFFD5;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.card img{
+    position: absolute;
+    bottom: 6px;
+    right: 15px;
+    background: #FFFFD5;
+}
+
+.card-answer{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #FFFFD5;
+}
+
+.vermelha, .amarela, .verde {
+    width: 85.17px;
+    height: 37.17px;
+    background: #FF3030;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.vermelha h5, .amarela h5, .verde h5 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.vermelha {
+    background-color: #FF3030;
+}
+
+.vermelha h5 {
+    background-color: #FF3030;
+}
+
+.amarela{
+    background-color: #FF922E;
+}
+
+.amarela h5 {
+    background-color: #FF922E;
+}
+
+.verde {
+    background-color:  #2FBE34;
+}
+
+.verde h5 {
+    background-color:  #2FBE34;
+}
+
+.done-red ion-icon , .done-green ion-icon , .done-yellow ion-icon {
+    width: 23px;
+    height: 23px;
+    margin-right: 22px;
+    background-color: #FFFFFF;
+}
+
+.done-red ion-icon, .done-red h3{
+    color: #FF3030;
+    text-decoration: line-through;
+}
+.done-yellow ion-icon, .done-yellow h3{
+    color: #FF922E;
+    text-decoration: line-through;
+}
+.done-green ion-icon, .done-green h3{
+    color: #2FBE34;
+    text-decoration: line-through;
 }

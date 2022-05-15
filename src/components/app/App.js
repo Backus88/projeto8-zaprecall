@@ -11,9 +11,12 @@ export default function App(){
 
 
     const questions= ["Nome do avô do Luffy", "Qual oceano o luffy nasceu", "Qual é a primeira recompensa do luffy", "Quem ensinou haki pro luffy"];
+    const answers = ["Garp", "East Blue", "30.000.000 berries", "Rayleight"];
+
     const flippedCard = new Array(questions.length).fill(false);
     const cards = questions.length;
-    const pages = ["intialPage", "cardPage", "bonusPage"]
+    const pages = ["intialPage", "cardPage", "bonusPage"];
+    const [flip, setFlip] = React.useState(flippedCard);
     const[right, setRight] = React.useState(0);
     const [footer, setfooter] = React.useState(false);
     const [card, setCard] = React.useState();
@@ -24,7 +27,7 @@ export default function App(){
     
     return(
         <>
-            {page === pages[0]? <IntialPage setPage={setPage} pages = {pages} /> : <WorkPage questions={questions} flippedCard={flippedCard}/>}
+            {page === pages[0]? <IntialPage setPage={setPage} pages = {pages} /> : <WorkPage answers={answers} questions={questions} flip={flip} setFlip = {setFlip}/>}
             {
                 (footer) ?
                     <Footer>
