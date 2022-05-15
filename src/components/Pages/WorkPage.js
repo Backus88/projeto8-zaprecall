@@ -2,8 +2,9 @@ import Question from "../question/Question"
 import littleZap from "../../assets/imgs/zapSmall.svg"
 import React from "react";
 
-export default function WorkPage({answers,questions,flip, setFlip}){
+export default function WorkPage({flashCard, flip, setFlip,counter,setCounter}){
     const [canFlip, setCanFlip] = React.useState(true);
+
 
    function fliper(flip,setFlip, index){
        if(canFlip){
@@ -21,14 +22,16 @@ export default function WorkPage({answers,questions,flip, setFlip}){
                 <h1>ZapRecall</h1>
             </div>
             {
-                questions.map((t, index)=> <Question  
+                flashCard.map((t, index)=> <Question  
                 index={index}
                  flip= {flip}
                 setFlip={setFlip}
-                questions={questions[index]} 
-                answers = {answers[index]}
+                questions={flashCard[index].questions} 
+                answers = {flashCard[index].answers}
                 fliper = {fliper}
                setCanFlip = {setCanFlip}
+               counter = {counter}
+               setCounter ={setCounter}
                 />)     
             }
         </div>
