@@ -2,7 +2,7 @@ import Question from "../question/Question"
 import littleZap from "../../assets/imgs/zapSmall.svg"
 import React from "react";
 
-export default function WorkPage({flashCard, flip, setFlip,counter,setCounter}){
+export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,answer,setAnswer,right,setRight}){
     const [canFlip, setCanFlip] = React.useState(true);
 
 
@@ -32,6 +32,10 @@ export default function WorkPage({flashCard, flip, setFlip,counter,setCounter}){
                setCanFlip = {setCanFlip}
                counter = {counter}
                setCounter ={setCounter}
+               answer ={answer}
+               setAnswer={setAnswer}
+               right = {right}
+               setRight = {setRight}
                 />)     
             }
         </div>

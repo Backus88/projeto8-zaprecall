@@ -7,7 +7,7 @@ h1{
     font-family: 'Righteous', cursive;
 }
 
-h2, h3, h4, h5 {
+h2, h3, h4, h5, h6 {
     font-family: 'Recursive', cursive;
 }
 
@@ -221,6 +221,7 @@ h3 {
     min-height: 70px;
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF;
@@ -230,6 +231,56 @@ h3 {
 .footer h2 {
     background-color: #FFFFFF;
     font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+}
+
+.footer h2:nth-child(4) {
+    margin-top: 15px;
+}
+
+.footer-icon{
+    background-color: #FFFFFF;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.footer-icon ion-icon{
+    width: 25px;
+    height: 25px;
+    background-color: #FFFFFF;
+    margin-right: -1px;
+}
+
+
+ion-icon[name = "close-circle"]{
+    color: #FF3030;
+}
+
+ion-icon[name = "help-circle"]{
+    color: #FF922E;
+}
+
+ion-icon[name = "checkmark-circle"]{
+    color: #2FBE34;
+}
+
+.well{
+    display: flex;
+    margin: 15px;
+    background-color: #FFFFFF;
+}
+
+.well img {
+    background-color:#FFFFFF ;
+    margin-right: 5px;
+}
+
+h6{
+    background-color: #FFFFFF;
+    font-style: normal;
+    font-weight: 700;
     font-size: 18px;
     line-height: 22px;
     color: #333333;

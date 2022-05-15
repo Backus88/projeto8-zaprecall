@@ -1,5 +1,7 @@
 import "../../assets/reset.css";
 import "../../assets/style.css";
+import party from "../../assets/imgs/party.svg"
+import sad from "../../assets/imgs/sad.svg"
 import React from "react";
 import IntialPage from "../Pages/IntialPage";
 import WorkPage from "../Pages/WorkPage";
@@ -17,6 +19,7 @@ export default function App(){
     { questions: "Akuma no mi do Luffy", answers: "HitoHito-Nika-Human model" }
     ]);
 
+    const x = []
     const flippedCard = new Array(flashCard.length).fill(false);
     const cards = flashCard.length;
     const pages = ["intialPage", "cardPage", "bonusPage"];
@@ -24,7 +27,7 @@ export default function App(){
     const[right, setRight] = React.useState(0);
     const [footer, setFooter] = React.useState(false);
     const [card, setCard] = React.useState();
-    const[answer, setAnswer] = React.useState([]);
+    const[answer, setAnswer] = React.useState(x);
     const [page, setPage] = React.useState(pages[0]);
     const [counter, setCounter] = React.useState(0);
    
@@ -42,7 +45,18 @@ export default function App(){
    
     return(
         <>
-            {page === pages[0]? <IntialPage  pages = {pages} shuffle = {shuffle} /> : <WorkPage flashCard={flashCard} flip={flip} setFlip = {setFlip} counter ={counter} setCounter={setCounter} />}
+            {page === pages[0]? <IntialPage  pages = {pages} shuffle = {shuffle} /> : <WorkPage
+            flashCard={flashCard}
+            flip={flip} 
+            setFlip = {setFlip} 
+            counter ={counter} 
+            setCounter={setCounter}
+            answer = {answer}
+            setAnswer = {setAnswer}
+            right = {right}
+            setRight = {setRight} 
+            />
+            }
             {
                 (footer) ?
                     <Footer>
@@ -55,14 +69,42 @@ export default function App(){
             {
                 (answer.length > 0) ?
                     <Footer>
-                        {answer.map(() => <ion-icon name={answer}></ion-icon>)}
+                         <h2>
+                            {counter}/{cards} concluídos
+                        </h2> 
+                        <div className="footer-icon">
+                            {answer.map((y,x) => <ion-icon name={answer[x]}></ion-icon>)}
+                        </div>
                     </Footer>
                     : null
             }
             {
-                (answer.length === cards.length) ?
+                (answer.length === cards) ?
                     <Footer>
-                        {(answer.length === right) ? "Você não esqueceu de nenhum flashcard!" : "Ainda faltam alguns... Mas não desanime!"}
+                        {(answer.length === right) ?
+                        <>
+                            <div className="well">
+                                <img src={party} />
+                                <h6>Parabéns!</h6>
+                            </div>
+                            <h2>Você não esqueceu de  </h2>
+                            <h2>nenhum flashcard!</h2>
+                        </>
+                         : 
+                         <>
+                            <div className="well">
+                                <img src={sad} />
+                                <h6>Putz...</h6>
+                            </div>
+                            <h2>Ainda faltam alguns...</h2>
+                            <h2> Mas não desanime!</h2>
+                         </>}
+                        <h2>
+                            {counter}/{cards} concluídos
+                        </h2> 
+                        <div className="footer-icon">
+                            {answer.map((y,x) => <ion-icon name={answer[x]}></ion-icon>)}
+                        </div>
                     </Footer>
                     : null
             }
