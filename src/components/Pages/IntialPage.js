@@ -10,11 +10,12 @@ export default function IntialPage({pages, shuffle,cards,setValue}){
         let aux = cards;
         if(!isNaN(Number(event.target.value))){
             const userValue = event.target.value;
-            aux = Number(userValue);
+            aux = userValue;
         }
-        if(!isNaN(aux)&&aux > 0) {
+        if(typeof (aux) === 'number'&&aux > 0) {
+            aux = Number(aux);
             aux = Math.floor(aux) ;
-            if(aux<= cards){
+            if(aux <= cards){
                 setMeta(true);
                 setValue(aux);
             }else{
@@ -29,13 +30,13 @@ export default function IntialPage({pages, shuffle,cards,setValue}){
         <div className="frame">
             <img src={zap} />
             <h1>ZapRecall</h1>
+            <input type="text" placeholder="Digite sua meta de zaps..." onChange={getInputValue} />
             {(meta)?     
                 <div class ="button" role = "button" onClick={() =>shuffle(pages)}>
                     Iniciar Recall!
                 </div>
             :
                 <>
-                    <input type="text" placeholder="Digite sua meta de zaps..." onChange={getInputValue} />
                     <div class ="button-grey">
                         Iniciar Recall!
                     </div>

@@ -56,6 +56,7 @@ h1 {
     margin-bottom: 100px;
     color: #D70900;
     cursor: pointer;
+    margin-top: 18px;
 }
 
 .start{
@@ -321,7 +322,6 @@ input {
     cursor: none;
     background-color: #E8E8E8;
     color:  #C0C0C0;
-    margin-top: 18px;
 }
 
 @media (min-width: 800px){
