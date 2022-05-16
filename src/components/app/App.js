@@ -2,7 +2,7 @@ import "../../assets/reset.css";
 import "../../assets/style.css";
 import party from "../../assets/imgs/party.svg"
 import sad from "../../assets/imgs/sad.svg"
-import React from "react";
+import React from 'react';
 import IntialPage from "../Pages/IntialPage";
 import WorkPage from "../Pages/WorkPage";
 import Footer from "../footer/Footer";
@@ -26,11 +26,12 @@ export default function App(){
     const [flip, setFlip] = React.useState(flippedCard);
     const[right, setRight] = React.useState(0);
     const [footer, setFooter] = React.useState(false);
-    const [card, setCard] = React.useState();
+    const [card, setCard] = React.useState(0);
     const[answer, setAnswer] = React.useState(x);
     const [page, setPage] = React.useState(pages[0]);
     const [counter, setCounter] = React.useState(0);
     const [clear, setClear] = React.useState(false);
+    const[value, setValue] = React.useState(cards);
    
     // function that randomized the cards
     function shuffle (pages){
@@ -59,7 +60,7 @@ export default function App(){
    // Intialpage, and the logic to intialize the Fotter using children props.
     return(
         <>
-            {page === pages[0]? <IntialPage  pages = {pages} shuffle = {shuffle} /> : <WorkPage
+            {page === pages[0]? <IntialPage  pages = {pages} shuffle = {shuffle} cards = {cards} setValue ={setValue} /> : <WorkPage
             flashCard={flashCard}
             flip={flip} 
             setFlip = {setFlip} 
@@ -70,13 +71,14 @@ export default function App(){
             right = {right}
             setRight = {setRight} 
             clear = {clear}
+            value = {value}
             />
             }
             {
                 (footer) ?
                     <Footer>
                        <h2>
-                            {counter}/{cards} concluídos
+                            {counter}/{value} concluídos
                         </h2> 
                     </Footer >
                     : null
@@ -85,7 +87,7 @@ export default function App(){
                 (answer.length > 0) ?
                     <Footer>
                          <h2>
-                            {counter}/{cards} concluídos
+                            {answer.length}/{value} concluídos
                         </h2> 
                         <div className="footer-icon">
                             {answer.map((y,x) => <ion-icon name={answer[x]}></ion-icon>)}
@@ -94,7 +96,7 @@ export default function App(){
                     : null
             }
             {
-                (answer.length === cards) ?
+                (answer.length === value) ?
                     <Footer>
                         {(answer.length === right) ?
                         <>
@@ -115,7 +117,7 @@ export default function App(){
                             <h2> Mas não desanime!</h2>
                          </>}
                         <h2>
-                            {counter}/{cards} concluídos
+                            {counter}/{value} concluídos
                         </h2> 
                         <div className="footer-icon">
                             {answer.map((y,x) => <ion-icon name={answer[x]}></ion-icon>)}

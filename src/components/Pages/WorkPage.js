@@ -2,13 +2,13 @@ import Question from "../question/Question"
 import littleZap from "../../assets/imgs/zapSmall.svg"
 import React, { useState, useEffect } from 'react';
 
-export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,answer,setAnswer,right,setRight,clear}){
+export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,answer,setAnswer,right,setRight,clear,value}){
     const [canFlip, setCanFlip] = React.useState(true);
 
     //Allowing the cards to be flipped
-    useEffect(() => {
-        setCanFlip(true);
-      }, [clear]);
+    // useEffect(() => {
+    //     setCanFlip(true);
+    //   }, [clear]);
 
     //logic to flip the card and disallowing the possibility of flip in that card
    function fliper(flip,setFlip, index){
@@ -28,7 +28,7 @@ export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,an
                 <h1>ZapRecall</h1>
             </div>
             {
-                flashCard.map((t, index)=> <Question  
+                flashCard.slice(0,value).map((t, index)=> <Question  
                 index={index}
                  flip= {flip}
                 setFlip={setFlip}

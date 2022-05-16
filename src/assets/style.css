@@ -38,7 +38,7 @@ h1 {
     padding-bottom: 30px;
 }
 
-.button{
+.button, .button-grey{
     width: 246px;
     height: 54px;
     background: #FFFFFF;
@@ -302,4 +302,24 @@ h6{
     justify-content: center;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+input {
+    width: 246px;
+    height: 43px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ADADAD;
+}
+
+.button-grey{
+    cursor: none;
+    background-color: #E8E8E8;
+    color:  #C0C0C0;
+    margin-top: 18px;
 }
