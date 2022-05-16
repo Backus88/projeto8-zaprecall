@@ -1,10 +1,13 @@
 import Question from "../question/Question"
 import littleZap from "../../assets/imgs/zapSmall.svg"
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
-export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,answer,setAnswer,right,setRight}){
+export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,answer,setAnswer,right,setRight,clear}){
     const [canFlip, setCanFlip] = React.useState(true);
 
+    useEffect(() => {
+        setCanFlip(true);
+      }, [clear]);
 
    function fliper(flip,setFlip, index){
        if(canFlip){

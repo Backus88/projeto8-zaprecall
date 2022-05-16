@@ -3,6 +3,7 @@ import React from "react";
 import imgFlip from "../../assets/imgs/flip.svg"
 import Finished from "./Finished";
 
+
 export default function Question({questions,index,flip,setFlip,fliper,answers, setCanFlip,counter,setCounter,answer, setAnswer,right,setRight}){
     const className = ["done-red", "done-yellow" ,"done-green"];
     const iconName = ["close-circle", "help-circle","checkmark-circle"];
@@ -10,6 +11,7 @@ export default function Question({questions,index,flip,setFlip,fliper,answers, s
     const [done, setDone] = React.useState(true)
     const [icon, setIcon] = React.useState("");
     const[name, setName] =React.useState("");
+
     
     function renderDone(iconValue,nameValue){
         setIcon(iconValue);

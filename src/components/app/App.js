@@ -19,7 +19,7 @@ export default function App(){
     { questions: "Akuma no mi do Luffy", answers: "HitoHito-Nika-Human model" }
     ]);
 
-    const x = []
+    const x = [];
     const flippedCard = new Array(flashCard.length).fill(false);
     const cards = flashCard.length;
     const pages = ["intialPage", "cardPage", "bonusPage"];
@@ -30,6 +30,7 @@ export default function App(){
     const[answer, setAnswer] = React.useState(x);
     const [page, setPage] = React.useState(pages[0]);
     const [counter, setCounter] = React.useState(0);
+    const [clear, setClear] = React.useState(false);
    
     // randoming the cards
     function shuffle (pages){
@@ -41,6 +42,17 @@ export default function App(){
             setPage(pages[1]);
             setFlashCard(newArray);
             setFooter(true);
+    }
+
+    function clearStates(){
+        setFlip(flippedCard);
+        setRight(0);
+        setFooter(false);
+        const newArr = [];
+        setAnswer(newArr);
+        setPage(pages[0]);
+        setCounter(0);
+        setClear(true);
     }
    
     return(
@@ -55,6 +67,7 @@ export default function App(){
             setAnswer = {setAnswer}
             right = {right}
             setRight = {setRight} 
+            clear = {clear}
             />
             }
             {
@@ -104,6 +117,9 @@ export default function App(){
                         </h2> 
                         <div className="footer-icon">
                             {answer.map((y,x) => <ion-icon name={answer[x]}></ion-icon>)}
+                        </div>
+                        <div className="restart" onClick={()=> clearStates()}>
+                            REINICIA RECALL
                         </div>
                     </Footer>
                     : null

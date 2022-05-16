@@ -285,3 +285,21 @@ h6{
     line-height: 22px;
     color: #333333;
 }
+
+.restart{
+    width: 167px;
+    height: 32px;        
+    background: #FB6B6B;
+    border-radius: 5px;
+    margin: 22px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
