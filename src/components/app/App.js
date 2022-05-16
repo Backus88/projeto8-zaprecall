@@ -11,7 +11,7 @@ const contadorInicial = 0;
 
 export default function App(){
 
-    
+    //The estates variables
     const [flashCard, setFlashCard] = React.useState([{ questions: "Nome do avô do Luffy", answers: "Garp" },
     { questions: "Qual oceano o luffy nasceu", answers: "East Blue" },
     { questions: "Qual é a primeira recompensa do luffy", answers: "30.000.000 berries" },
@@ -32,7 +32,7 @@ export default function App(){
     const [counter, setCounter] = React.useState(0);
     const [clear, setClear] = React.useState(false);
    
-    // randoming the cards
+    // function that randomized the cards
     function shuffle (pages){
             for (let i = flashCard.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -43,7 +43,7 @@ export default function App(){
             setFlashCard(newArray);
             setFooter(true);
     }
-
+    // function that reset the components, going back to the first page
     function clearStates(){
         setFlip(flippedCard);
         setRight(0);
@@ -54,7 +54,9 @@ export default function App(){
         setCounter(0);
         setClear(true);
     }
-   
+
+   // logic to initialez the first compnents IntialPage that represents the first page, and to load the component WorkPage from the
+   // Intialpage, and the logic to intialize the Fotter using children props.
     return(
         <>
             {page === pages[0]? <IntialPage  pages = {pages} shuffle = {shuffle} /> : <WorkPage

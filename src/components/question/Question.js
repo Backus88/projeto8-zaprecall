@@ -12,7 +12,7 @@ export default function Question({questions,index,flip,setFlip,fliper,answers, s
     const [icon, setIcon] = React.useState("");
     const[name, setName] =React.useState("");
 
-    
+    // function that change the state of the card and put the icons in the footer
     function renderDone(iconValue,nameValue){
         setIcon(iconValue);
         setName(nameValue);

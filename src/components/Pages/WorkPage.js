@@ -5,10 +5,12 @@ import React, { useState, useEffect } from 'react';
 export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,answer,setAnswer,right,setRight,clear}){
     const [canFlip, setCanFlip] = React.useState(true);
 
+    //Allowing the cards to be flipped
     useEffect(() => {
         setCanFlip(true);
       }, [clear]);
 
+    //logic to flip the card and disallowing the possibility of flip in that card
    function fliper(flip,setFlip, index){
        if(canFlip){
         const newArr = [...flip];
@@ -18,6 +20,7 @@ export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,an
         }  
    }
    
+   // logic to render the questions
     return(
         <div className="frame start">
             <div className="work-title">
