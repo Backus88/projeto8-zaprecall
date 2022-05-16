@@ -16,7 +16,9 @@ export default function App(){
     { questions: "Qual oceano o luffy nasceu", answers: "East Blue" },
     { questions: "Qual é a primeira recompensa do luffy", answers: "30.000.000 berries" },
     { questions: "Quem ensinou haki pro luffy", answers: "Rayleight" },
-    { questions: "Akuma no mi do Luffy", answers: "HitoHito-Nika-Human model" }
+    { questions: "Akuma no mi do Luffy", answers: "HitoHito-Nika-Human model" },
+    { questions: "Nome do primeiro barco dos Straw Hats", answers: "GoingMerry" },
+    { questions: "Pra quem Nami trabalhava antes de ingressar no bando", answers: "Arlong"}
     ]);
 
     const x = [];
@@ -78,7 +80,7 @@ export default function App(){
                 (footer) ?
                     <Footer>
                        <h2>
-                            {counter}/{value} concluídos
+                            {counter}/{cards} concluídos
                         </h2> 
                     </Footer >
                     : null
@@ -87,7 +89,7 @@ export default function App(){
                 (answer.length > 0) ?
                     <Footer>
                          <h2>
-                            {answer.length}/{value} concluídos
+                            {answer.length}/{cards} concluídos
                         </h2> 
                         <div className="footer-icon">
                             {answer.map((y,x) => <ion-icon name={answer[x]}></ion-icon>)}
@@ -96,9 +98,9 @@ export default function App(){
                     : null
             }
             {
-                (answer.length === value) ?
+                (answer.length === cards) ?
                     <Footer>
-                        {(answer.length === right) ?
+                        {(right >= value) ?
                         <>
                             <div className="well">
                                 <img src={party} />
@@ -117,7 +119,7 @@ export default function App(){
                             <h2> Mas não desanime!</h2>
                          </>}
                         <h2>
-                            {counter}/{value} concluídos
+                            {counter}/{cards} concluídos
                         </h2> 
                         <div className="footer-icon">
                             {answer.map((y,x) => <ion-icon name={answer[x]}></ion-icon>)}

@@ -28,7 +28,7 @@ export default function WorkPage({flashCard, flip, setFlip,counter,setCounter,an
                 <h1>ZapRecall</h1>
             </div>
             {
-                flashCard.slice(0,value).map((t, index)=> <Question  
+                flashCard.map((t, index)=> <Question  
                 index={index}
                  flip= {flip}
                 setFlip={setFlip}
