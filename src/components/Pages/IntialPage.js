@@ -8,12 +8,11 @@ export default function IntialPage({pages, shuffle,cards,setValue}){
     const getInputValue = (event)=>{
         event.preventDefault();
         let aux = cards;
-        if(!isNaN(Number(event.target.value))){
-            const userValue = event.target.value;
-            aux = userValue;
+        if(Number(event.target.value) !== NaN){
+            aux= event.target.value;
         }
-        if(typeof (aux) === 'number'&&aux > 0) {
-            aux = Number(aux);
+        aux = Number(aux);
+        if(aux!= NaN &&aux > 0) {
             aux = Math.floor(aux) ;
             if(aux <= cards){
                 setMeta(true);
