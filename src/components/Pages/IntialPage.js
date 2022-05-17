@@ -4,23 +4,22 @@ import React from "react"
 export default function IntialPage({pages, shuffle,cards,setValue}){
     const[meta,setMeta]= React.useState(false);
     
-    
+    let aux = cards;
     const getInputValue = (event)=>{
         event.preventDefault();
-        let aux = cards;
-        if(Number(event.target.value) !== NaN){
-            aux= event.target.value;
-        }
-        aux = Number(aux);
+        console.log(event.target.value);
+        aux = event.target.value;
         if(aux!= NaN &&aux > 0) {
-            aux = Math.floor(aux) ;
+            // aux = Math.floor(aux);
             if(aux <= cards){
                 setMeta(true);
                 setValue(aux);
             }else{
                 setValue(cards);
+                setMeta(false)
             }
         }else{
+            setMeta(false);
             setValue(cards)
         }
     };
@@ -29,7 +28,7 @@ export default function IntialPage({pages, shuffle,cards,setValue}){
         <div className="frame">
             <img src={zap} />
             <h1>ZapRecall</h1>
-            <input type="text" placeholder="Digite sua meta de zaps..." onChange={getInputValue} />
+            <input type="number" placeholder="Digite sua meta de zaps..." onChange={getInputValue} />
             {(meta)?     
                 <div class ="button" role = "button" onClick={() =>shuffle(pages)}>
                     Iniciar Recall!
